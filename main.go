@@ -126,7 +126,7 @@ func initGlobalLogger() {
 	// 另一个 goroutine 用于异步写入日志
 	go func() {
 		for entry := range logChannel {
-			entry.Logger.Info(entry.Message)
+			entry.Info() // 修改这里
 		}
 	}()
 }
